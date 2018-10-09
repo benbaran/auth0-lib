@@ -1,27 +1,64 @@
-# Auth0LibApp
+# benbaran/auth0-lib
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+## Project Creation
 
-## Development server
+npm install -g @angular/cli@latest
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ng new auth0-lib-app --routing
 
-## Code scaffolding
+rename auth0-lib-app auth0-lib
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+cd auth0-lib
 
-## Build
+ng generate library auth0-lib --prefix=a0l
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ng build auth0-lib
 
-## Running unit tests
+git remote add origin https://github.com/benbaran/auth0-lib.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+git push -u origin master
 
-## Running end-to-end tests
+## Install Angular Material
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+npm install --save @angular/material @angular/cdk @angular/animations hammerjs
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+@NgModule({
+  ...
+  imports: [BrowserAnimationsModule],
+  ...
+})
+
+After installing, import it on your app's entry point (e.g. src/main.ts).
+
+import 'hammerjs';
+
+Add to styles.css:
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+ng g module Material
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  MatButtonModule,
+  MatToolbarModule
+} from '@angular/material';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatToolbarModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatToolbarModule
+  ],
+  declarations: []
+})
+export class MaterialModule { }
