@@ -62,3 +62,20 @@ import {
   declarations: []
 })
 export class MaterialModule { }
+
+
+npm install --save auth0-js
+
+ng g component Home
+ng g component Callback
+ng g component NotFound
+
+import { CallbackComponent } from './callback/callback.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'callback', component: CallbackComponent },
+  { path: '**', component: NotFoundComponent }
+];
