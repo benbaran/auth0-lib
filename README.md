@@ -35,4 +35,4 @@ cd ..\..
 
 ng build auth0-lib
 
-npm publish dist/
+npm publish dist/auth0-lib
