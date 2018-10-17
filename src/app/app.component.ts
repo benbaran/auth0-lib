@@ -18,9 +18,12 @@ export class AppComponent {
   });
 
   constructor(private auth: Auth0LibService) {
+    
     auth.init(this.auth0Config);
 
     auth.handleAuthentication();
+
+    auth.scheduleRenewal();
   }
 
   public login(): void {
